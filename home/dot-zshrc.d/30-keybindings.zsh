@@ -1,8 +1,5 @@
 #!/bin.zsh
 
-# Use Emacs keybindings
-bindkey -e
-
 # ⌥ + Left / Right (Jump by word)
 bindkey "^[b" backward-word   # ⌥ + ←
 bindkey "^[f" forward-word    # ⌥ + →
