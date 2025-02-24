@@ -12,4 +12,7 @@ else
   compinit -C -d "$ZSH_COMPDUMP"
 fi
 
+# include hidden files in completions
+setopt globdots
+
 znap source zsh-users/zsh-completions
