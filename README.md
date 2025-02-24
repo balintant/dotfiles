@@ -44,7 +44,7 @@ mise install
 
 # Updates
 
-You can update the [./Brewfile]() with the following command:
+You can update the [Brewfile](./Brewfile) with the following command:
 
 ```
 brew bundle dump --force --file ./Brewfile
