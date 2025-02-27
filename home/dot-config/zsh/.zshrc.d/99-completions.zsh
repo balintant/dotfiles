@@ -3,7 +3,7 @@ autoload -Uz compinit
 autoload -U add-zsh-hook
 
 if [[ -z "$ZSH_COMPDUMP" ]]; then
-  ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
+  ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
 fi
 
 if [[ ! -f "$ZSH_COMPDUMP.zwc" || "$ZSH_COMPDUMP" -nt "$ZSH_COMPDUMP.zwc" ]]; then
