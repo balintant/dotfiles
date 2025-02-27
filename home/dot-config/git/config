@@ -10,7 +10,7 @@
 [core]
 	autocrlf     = false
 	editor       = vim
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.config/git/.gitignore
 	ignorecase   = false
 
 [filter "lfs"]
