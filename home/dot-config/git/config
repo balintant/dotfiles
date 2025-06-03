@@ -1,3 +1,15 @@
+[advice]
+	addEmptyPathspec   = false
+	pushNonFastForward = false
+	statusHints        = false
+
+[alias]
+	diffs = diff --staged
+	graph = log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'
+
+[branch]
+	sort = -committerdate
+
 [credential]
 	helper = osxkeychain
 
@@ -6,12 +18,29 @@
 
 [commit]
 	gpgsign = true
+	verbose = true
 
 [core]
-	autocrlf     = false
-	editor       = vim
-	excludesFile = ~/.config/git/.gitignore
-	ignorecase   = false
+	autocrlf       = false
+	compression    = 9
+	editor         = vim
+	excludesFile   = ~/.config/git/.gitignore
+	fsmonitor      = true
+	ignorecase     = false
+	untrackedcache = true
+	whitespace     = error
+	preloadindex   = true
+
+[diff]
+	algorithm        = histogram
+	colormoved       = plain
+	context          = 3
+	interHunkContext = 10
+	renames          = copies
+	sumodule         = log
+
+[fetch]
+	fsckobjects = true
 
 [filter "lfs"]
 	clean    = git-lfs clean -- %f
@@ -30,16 +59,57 @@
 [init]
 	defaultBranch = main
 
+[log]
+	abbrevCommit = true
+	date         = iso
+
+[merge]
+	conflictStyle = zdiff3
+
 [pull]
-	ff = only
+	default = current
+	ff      = only
+	rebase  = true
 
 [push]
-	followtags = true
+	autoSetupRemote = true
+	default         = current
+	followTags      = true
+
+[rebase]
+	# You have a commit that you would like to be combined with some commit that’s 3 commits ago, say add parsing code
+	# You commit it with git commit --fixup OLD_COMMIT_ID, which gives the new commit the commit message fixup! add parsing code
+	# Now, when you run git rebase [--autosquash] main, it will automatically combine all the fixup! commits with their targets
+	autosquash          = true
+	autoStash           = true
+	missingCommitsCheck = warn
+	updateRefs          = true
+
+[receive]
+	fsckObjects = true
 
 [rerere]
 	enabled = true
 
+[status]
+	branch             = true
+	showStash          = true
+	showUntrackedFiles = all
+	submoduleSummary   = true
+
+[submodule]
+	recurse = true
+
+[tag]
+	sort = -taggerdate
+
+[transfer]
+	fsckObjects = true
+
+[url "https://github.com/"]
+	insteadOf = "git@github.com:"
+
 [user]
-	name          = Balint Antal
+	name = Balint Antal
 	signingkey    = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJi9Fk7go7rlgKX1+acIo5Dnl0mjV1hFbPHW/LxvNW5
 	useConfigOnly = true
