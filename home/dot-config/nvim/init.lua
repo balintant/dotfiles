@@ -1,3 +1,8 @@
+-- Avoid loading if used within vscode plugin (asvetliakov.vscode-neovim)
+if vim.g.vscode then
+  return
+end
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
