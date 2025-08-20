@@ -30,11 +30,8 @@ ready for work.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --file ./Brewfile
 
-# Remove existing symlinks
-stow -D --dotfiles -t "$HOME" home
-
 # Symlink the configuration files
-stow --dotfiles -t "$HOME" home
+stow -R --dotfiles -t "$HOME" home
 
 # Trust & Install the packages managed by `mise`
 mise trust
