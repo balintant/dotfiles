@@ -11,7 +11,7 @@ git_prompt_status() {
   local branch=$(git branch --show-current 2> /dev/null)
   [[ -z $branch ]] && return
   echo -ne "%F{green}${branch}%f"
-  local git_status=$(git status -s 2> /dev/null)
+  local git_status=$(git status -s | sed '1d' 2> /dev/null)
   [[ -n $git_status ]] && echo -ne "%F{yellow}⚡%f"
   echo -ne " "
 }
