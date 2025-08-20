@@ -26,6 +26,7 @@
 	editor         = vim
 	excludesFile   = ~/.config/git/.gitignore
 	fsmonitor      = true
+    hooksPath      = ~/.config/git/hooks
 	ignorecase     = false
 	untrackedcache = true
 	whitespace     = error

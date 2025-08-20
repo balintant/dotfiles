@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+# Run the matching HK hook for any repo that has hk.pkl.
+# Works for: pre-commit, commit-msg, pre-push, prepare-commit-msg, etc.
+
+set -e
+
+# Derive hook name from the script's filename (e.g., "pre-commit")
+HOOK="$(basename "$0")"
+
+# Find repo root (exit quietly if not in a git repo)
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || exit 0)"
+
+# Require hk.pkl to opt-in
+[ -f "$ROOT/hk.pkl" ] || exit 0
+
+# Optional: only run if the hook exists in hk.pkl
+CONFIG="${HK_CONFIG:-$ROOT/hk.pkl}"
+
+if [ -f "$CONFIG" ] && grep -q "\[\"$HOOK\"\]" "$CONFIG"; then
+  (cd "$ROOT" && mise x hk -- hk run "$HOOK" -- "$@")
+  exit $?
+fi
+
+exit 0
