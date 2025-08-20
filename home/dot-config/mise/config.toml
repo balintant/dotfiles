@@ -4,6 +4,7 @@ _.source = '{{ cwd }}/.envrc'
 [tools]
 awscli = "latest"
 bun = "latest"
+claude = "latest"
 cmake = "latest"
 fly = "latest"
 golang = "latest"
