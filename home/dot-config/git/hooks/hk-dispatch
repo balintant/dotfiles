@@ -1,11 +1,21 @@
 #!/usr/bin/env sh
 # Run the matching HK hook for any repo that has hk.pkl.
 # Works for: pre-commit, commit-msg, pre-push, prepare-commit-msg, etc.
-
 set -e
 
 # Derive hook name from the script's filename (e.g., "pre-commit")
 HOOK="$(basename "$0")"
+
+# Get the repo's actual .git directory (not core.hooksPath)
+GIT_DIR="$(git rev-parse --git-dir 2>/dev/null || true)"
+[ -n "$GIT_DIR" ] || exit 0 # not in a git repo
+
+LOCAL_HOOK="$GIT_DIR/hooks/$HOOK"
+
+# Avoid infinite recursion if this file == local hook
+if [ -x "$LOCAL_HOOK" ] && [ ! "$LOCAL_HOOK" -ef "$0" ]; then
+  exec "$LOCAL_HOOK" "$@"
+fi
 
 # Find repo root (exit quietly if not in a git repo)
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null || exit 0)"
