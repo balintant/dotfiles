@@ -1,0 +1,41 @@
+amends "package://github.com/jdx/hk/releases/download/v1.54.1/hk@1.54.1#/Config.pkl"
+
+import "package://github.com/jdx/hk/releases/download/v1.54.1/hk@1.54.1#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+  ["json-format"] = (Builtins.jq) { exclude = List("**/lazy-lock.json") }
+  ["lua-format"] = Builtins.stylua
+  ["md-format"] = Builtins.rumdl_format
+  ["md-linter"] = (Builtins.rumdl) { depends = List("md-format") }
+  ["mise-lock"] {
+    depends = List("toml-format", "toml-linter")
+    glob = List("mise.toml", "mise.lock")
+    stage = List("mise.lock")
+    fix = "mise lock --silent"
+  }
+  ["pkl-format"] = Builtins.pkl_format
+  ["pkl-linter"] = (Builtins.pkl) { depends = List("pkl-format") }
+  ["shell-format"] = Builtins.shfmt
+  ["shell-linter"] = Builtins.shellcheck
+  ["ssh-config-linter"] = new {
+    glob = List("**/.ssh/config", "**/.ssh/conf.d/*")
+    check = "ssh -F dotfiles/home/.ssh/config -G hk-check-host >/dev/null"
+  }
+  ["toml-format"] = Builtins.taplo_format
+  ["toml-linter"] = (Builtins.taplo) { depends = List("toml-format") }
+}
+
+hooks {
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps = linters
+  }
+  ["fix"] {
+    fix = true
+    steps = linters
+  }
+  ["check"] {
+    steps = linters
+  }
+}

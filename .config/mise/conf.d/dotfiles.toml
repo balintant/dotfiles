@@ -1,0 +1,20 @@
+[dotfiles."~"]
+exclude = [
+  ".config/git/config",
+  ".config/zsh/.zprofile.d",
+  ".config/zsh/.zshrc.d",
+]
+mode = "symlink-each"
+source = "../../../dotfiles/home"
+
+[dotfiles."~/.config/git/config"]
+mode = "template"
+source = "../../../dotfiles/home/.config/git/config"
+
+[dotfiles."~/.config/zsh/.zshrc.d"]
+mode = "symlink"
+source = "../../../dotfiles/home/.config/zsh/.zshrc.d"
+
+[dotfiles."~/.config/zsh/.zprofile.d"]
+mode = "symlink"
+source = "../../../dotfiles/home/.config/zsh/.zprofile.d"

@@ -1,0 +1,14 @@
+[bootstrap.packages]
+# ------------- #
+# Mac App Store #
+# ------------- #
+"mas:1569813296" = "latest" # 1Password for Safari
+"mas:462058435" = "latest"  # Microsoft Excel
+"mas:462062816" = "latest"  # Microsoft PowerPoint
+"mas:462054704" = "latest"  # Microsoft Word
+"mas:409203825" = "latest"  # Numbers
+"mas:409201541" = "latest"  # Pages
+"mas:899247664" = "latest"  # TestFlight
+"mas:1450874784" = "latest" # Transporter
+"mas:1662217862" = "latest" # Wipr 2
+"mas:1451685025" = "latest" # WireGuard

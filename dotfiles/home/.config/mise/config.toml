@@ -1,0 +1,60 @@
+[tools]
+"aqua:aws/session-manager-plugin" = "latest"
+aube = "latest"
+awscli = "latest"
+biome = "latest"
+bun = "latest"
+cmake = "latest"
+codex = "latest"
+fnox = "latest"
+golang = "latest"
+java = "latest"
+jq = "latest"
+kotlin = "latest"
+make = "latest"
+node = "lts"
+opentofu = "latest"
+pipx = "latest"
+"pipx:uv" = "latest"
+pkl = "latest"
+pnpm = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+sentry = "latest"
+taplo = "latest"
+watchexec = "latest"
+
+[tools.cocoapods]
+depends = ["ruby"]
+os = ["macos/arm64"]
+version = "latest"
+
+[tools.hk]
+postinstall = "hk install --global --mise"
+version = "latest"
+
+[shell_alias]
+specify = "uvx --from https://github.com/github/spec-kit.git specify"
+
+[settings]
+activate_aggressive = false
+auto_install = true
+env_cache = true
+env_cache_ttl = "1h"
+fetch_remote_versions_cache = "6h"
+github_attestations = true
+gpg_verify = true
+http_retries = 2
+http_timeout = "20s"
+install_before = "7d"
+jobs = 8
+#locked = true
+lockfile = true
+not_found_auto_install = true
+paranoid = true
+prefer_offline = true
+slsa = true
+
+[settings.github]
+use_git_credentials = true

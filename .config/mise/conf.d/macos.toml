@@ -1,0 +1,14 @@
+[bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
+TrackpadThreeFingerDrag = true
+
+[bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
+TrackpadThreeFingerDrag = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+_FXSortFoldersFirst = true
+_FXSortFoldersFirstOnDesktop = true
+FXPreferredViewStyle = "clmv"
+FXPreferredGroupBy = "Kind"
+
+[bootstrap.macos.defaults."com.apple.universalaccess"]
+closeViewScrollWheelToggle = true

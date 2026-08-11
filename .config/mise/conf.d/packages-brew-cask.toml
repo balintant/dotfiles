@@ -1,0 +1,46 @@
+[bootstrap.packages]
+"brew-cask:1password" = "latest"
+"brew-cask:1password-cli" = "latest"
+"brew-cask:affinity" = "latest"
+"brew-cask:android-studio" = "latest"
+"brew-cask:appcleaner" = "latest"
+
+# mise ERROR brew-cask: binary artifact '$APPDIR/Arq.app/Contents/Resources/arqc' was not found
+#"brew-cask:arq" = "latest"
+
+# mise ERROR brew-cask:blender: unsupported preflight_steps step type set_permissions
+#"brew-cask:blender" = "latest"
+
+"brew-cask:chatgpt" = "latest"
+"brew-cask:claude" = "latest"
+"brew-cask:claude-code" = "latest"
+"brew-cask:daisydisk" = "latest"
+
+# mise ERROR brew-cask:docker-desktop: unsupported postflight_steps step type symlink
+#"brew-cask:docker-desktop" = "latest"
+
+"brew-cask:drawio" = "latest"
+"brew-cask:handbrake-app" = "latest"
+"brew-cask:hex-fiend" = "latest"
+"brew-cask:licecap" = "latest"         # requires `mise run apply --verbose` on first install so the license prompt is visible
+"brew-cask:mongodb-compass" = "latest"
+
+# mise ERROR brew-cask:paragon-ntfs: unsupported artifact type installer
+#"brew-cask:paragon-ntfs" = "latest"
+
+# xattr: /Users/balintant/.cache/mise/system-brew/cask-extract/parallels-26.4.1-57516/Parallels Desktop.app: No such xattr: com.apple.FinderInbrew-cask:parallels
+# mise ERROR brew-cask:parallels: failed to run structured preflight_steps
+#"brew-cask:parallels" = "latest"
+
+# mise ERROR brew-cask:parallels-toolbox: unsupported artifact type installer
+#"brew-cask:parallels-toolbox"         = "latest"
+
+"brew-cask:perplexity" = "latest"
+"brew-cask:postman" = "latest"
+"brew-cask:setapp" = "latest"
+"brew-cask:sketch" = "2025.3.4,221297"
+"brew-cask:slack" = "latest"
+"brew-cask:transmission" = "latest"
+"brew-cask:unifi-identity-enterprise" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:vlc" = "latest"

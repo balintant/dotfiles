@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+setopt append_history
+setopt extended_history

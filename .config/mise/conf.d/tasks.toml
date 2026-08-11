@@ -1,0 +1,12 @@
+[tasks."apply"]
+description = "Install and update packages, link dotfiles, install and upgrade tools."
+run = [
+  'mise bootstrap {% if not usage.safe %}--force-dotfiles --yes {% endif %}{% if usage.verbose %}--verbose{% endif %}',
+  'mise install{% if usage.verbose %} --verbose{% endif %}',
+  'mise upgrade{% if usage.verbose %} --verbose{% endif %}',
+  'brew bundle --global{% if usage.verbose %} --verbose{% endif %}',
+]
+usage = '''
+flag "--safe" help="Ask before overwriting dotfiles or accepting prompts (drops --force-dotfiles and --yes)"
+flag "-v --verbose" help="Verbose output from mise and brew"
+'''
